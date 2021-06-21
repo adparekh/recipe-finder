@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Recipe from "./Recipe/Recipe";
-import "./App.css";
+import styles from "./App.module.css";
 
 const App = () => {
   const APP_ID = "2768935d";
@@ -18,7 +18,6 @@ const App = () => {
     );
     const data = await response.json();
     setRecipes(data.hits);
-    console.log(data.hits);
   };
 
   useEffect(() => {
@@ -36,19 +35,19 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <form onSubmit={getSearch} className="search-form">
+    <div className={styles.App}>
+      <form onSubmit={getSearch} className={styles.searchForm}>
         <input
           type="text"
-          className="search-bar"
+          className={styles.searchBar}
           value={search}
           onChange={updateSearch}
         />
-        <button type="submit" className="search-button">
+        <button type="submit" className={styles.searchButton}>
           Search
         </button>
       </form>
-      <div className="recipes">
+      <div className={styles.recipes}>
         {recipes.map((recipe) => (
           <Recipe
             key={recipe.recipe.label}
@@ -58,6 +57,20 @@ const App = () => {
             ingredients={recipe.recipe.ingredients}
           />
         ))}
+      </div>
+      <div>
+        <p className={styles.footer}>
+          Made By Aditya Parekh using the React.js Framework.
+        </p>
+        <p className={styles.smaller}>
+          <a
+            href="https://github.com/adparekh/covid19-tracker"
+            target="_blank"
+            rel="noreferrer"
+          >
+            You can find the code here
+          </a>
+        </p>
       </div>
     </div>
   );
