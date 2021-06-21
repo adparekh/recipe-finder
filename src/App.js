@@ -64,7 +64,7 @@ const App = () => {
         </p>
         <p className={styles.smaller}>
           <a
-            href="https://github.com/adparekh/covid19-tracker"
+            href="https://github.com/adparekh/recipe-search"
             target="_blank"
             rel="noreferrer"
           >
